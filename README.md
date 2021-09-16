@@ -61,8 +61,49 @@ The direction of these relationships matter, and thus the edge between two nodes
 ![Directed graph](https://ga-instruction.s3.amazonaws.com/assets/tech/computer-science/graphs/directed-graph.png)
 
 **❓ Which type of graph would we need to represent liking someone's Instagram post?**
+
 **❓ Which type of graph would we need to represent all the available flight routes between destinations?**
 
 ## Implementing Graphs
 
 There are two main ways that we can implement graphs in code.
+
+### Adjacency List
+
+An adjacency list uses a collection of arrays for each node, and is the more commonly used implementation. In this implementation, a graph is represented with a collection of arrays for each node.
+
+In code, an adjacency list looks like the example below. Each key-value pair represents a node. The key is the value of the node, and the value is an array of edges to other nodes:
+
+```js
+const graph = {
+	A: ['B', 'E'],
+	B: ['A', 'C', 'D', 'E'],
+	C: ['B', 'D'],
+	D: ['B', 'C', 'E'],
+	E: ['A', 'B', 'D'],
+};
+```
+
+**❓ What would this look like drawn out in visual form?**
+
+**❓ Is the graph represented here a directed or undirected graph?**
+
+### Adjacency Matrix
+
+An adjacency matrix is represented by a two-dimensional array. In an adjacency matrix, a graph is represented by a two-dimensional array (an array of arrays). Each subarray is a node, and the values in the node represent edges to other nodes. Conceptually, this is what it looks like:
+
+In code, it looks like this, where a 1 represents an edge and a 0 represents a lack of an edge:
+
+```js
+const graph = [
+	[0, 1, 0, 0, 1],
+	[1, 0, 1, 1, 1],
+	[0, 1, 0, 1, 0],
+	[0, 1, 1, 0, 1],
+	[1, 1, 0, 1, 0],
+];
+```
+
+**❓ The adjacency matrix graph above is an undirected graph. There’s a secret clue in the graph that can help you figure that out — can you tell what it is?**
+
+## Time Complexity
