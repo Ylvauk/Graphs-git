@@ -107,3 +107,11 @@ const graph = [
 **❓ The adjacency matrix graph above is an undirected graph. There’s a secret clue in the graph that can help you figure that out — can you tell what it is?**
 
 ## Time Complexity
+
+## Additional Resources
+
+- Practice building a graph [visually](https://visualgo.net/en/graphds?slide=1).
+- Common graph interview [questions AND solutions](https://medium.com/@codingfreak/graph-data-structure-interview-questions-and-practice-problems-22d5cd488855).
+- Some graph data structure [interview question topics](https://medium.com/@codingfreak/graph-data-structure-interview-questions-and-practice-problems-22d5cd488855).
+- Visualizations of [breadth-first search](https://www.cs.usfca.edu/~galles/visualization/BFS.html) and [depth-first search](https://www.cs.usfca.edu/~galles/visualization/DFS.html) in a graph structure.
+- [More interview questions](https://stackabuse.com/graph-data-structure-interview-questions) about graphs that don’t necessarily deal with coding.
