@@ -1,3 +1,5 @@
+![GA Logo](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
+
 # Graphs
 
 ## Learning Objectives
@@ -22,6 +24,7 @@ $ npm install
 $ code .
 ```
 
+- Work on the exercises in [`./graphs.js`](./graphs.js)
 - Run tests
 
 ```bash
@@ -34,7 +37,7 @@ A graph is a collection of nodes, which store data, and edges, which represent r
 
 ![Graph with A, B, C, D, E nodes](https://ga-instruction.s3.amazonaws.com/assets/tech/computer-science/intro-data-structures/9-Diagram.png)
 
-Graphs are commonly used to represent networks. They are concerned with the multiple relationships between entities, like the friend connections in a network of users, or the possible routes between locations on a map.
+Graphs are commonly used to represent networks. They are concerned with the multiple relationships between entities, like the friend connections in a network of users, or the possible routes between locations on a map, or routers and ethernet cables.
 
 Facebook has [used a graph data structure](https://m.facebook.com/nt/screen/?params=%7B%22note_id%22%3A10158791578747200%7D&path=%2Fnotes%2Fnote%2F&refsrc=deprecated&_rdr) to organize its data since 2013. Items like users, check-ins, and comments would be stored as objects, also called “nodes.” The relationship between those items — “liked by” or “friend of” — are represented as “edges” that connect the objects. A graph structure is the clearest and most efficient way for Facebook to store this data, return it to users, and make it accessible to developers.
 
@@ -92,6 +95,8 @@ const graph = {
 
 An adjacency matrix is represented by a two-dimensional array. In an adjacency matrix, a graph is represented by a two-dimensional array (an array of arrays). Each subarray is a node, and the values in the node represent edges to other nodes. Conceptually, this is what it looks like:
 
+![Adjacency Matrix](https://ga-instruction.s3.amazonaws.com/assets/tech/computer-science/graphs/numbers-and-letters.png)
+
 In code, it looks like this, where a 1 represents an edge and a 0 represents a lack of an edge:
 
 ```js
@@ -104,14 +109,75 @@ const graph = [
 ];
 ```
 
+**❓ What would this look like drawn out in visual form?**
+
 **❓ The adjacency matrix graph above is an undirected graph. There’s a secret clue in the graph that can help you figure that out — can you tell what it is?**
 
 ## Time Complexity
 
+The algorithmic complexity of a graph's operations depends on how the graph is implemented.
+
+| Operation      | Adjacency List | Adjacency Matrix |
+| -------------- | -------------- | ---------------- |
+| Search         | O(N)           | O(1)             |
+| Insert a node  | O(1)           | O(N^2)           |
+| Delete a node  | O(N+E)         | O(N^2)           |
+| Add an edge    | O(1)           | O(1)             |
+| Delete an edge | O(E)           | O(1)             |
+| Memory (Space) | O(N+E)         | O(N^2)           |
+
+> Here, N represents a node and E represents an edge; both values have an impact on the complexity of adjacency lists and matrices.
+
+**❓ If the time efficiency of Search operations needed to be prioritized, which implementation would you choose?**
+
+**❓ Why do you think Adjacency Matrices have such slow insertion/deletion operations for nodes?**
+
+## Breadth-First and Depth-First Search
+
+Just like with any data structure, we need to be able to find the data we're looking for in a graph. As with binary trees, another structure that is a collection of interrelated nodes, we can traverse a graph using either Breadth-First or Depth-First searches.
+
+### Breadth-First Search (BFS)
+
+Breadth-first search tries to stay as close to the starting node as possible before going on to the next level of nodes. The search "ripples out" from the starting point and checks all the first-degree connections before moving on to second-degree and higher levels of connection.
+
+A breadth-first search has one big advantage to recommend it -- it will find the shortest path between two connected nodes, as we're traversing the closest connections first.
+
+If you know the value you're looking for is closer to the starting node, choose BFS as it will be faster.
+
+### Depth-First Search (DFS)
+
+Depth-first search follows one chain of related nodes until you reach the end of the graph, then returns to the starting node and begins again. You go as deep as possible down one path before backing up and trying again.
+
+It's like walking through a maze. You explore one path, hit a dead end, and go back and try a different one.
+
+Depth-first searches lend themselves well to a recursive approach, as you want to continue traversing while a node has connections, and explore all the possible connections before returning to the starting point. If the graph is very wide and not too deep, DFS is generally more efficient than BFS at finding the desired element.
+
+### BFS vs. DFS Use Cases
+
+Think about trying to find someone on Facebook. If you wanted to find a specific person, you’d approach it differently than if you were just browsing for new friends. Say you wanted to find your long-lost best friend from kindergarten. As you comb through every possible person with their name, Facebook is using DFS to return those results.
+
+But if you wanted to find people to connect with on Facebook, you might use Facebook’s “People You May Know” feature. In this scenario, Facebook is using BFS to show you people with whom you have things in common — mutual friends, where you live, or where you work.
+
+## Graph Implementation
+
+To complete this exercise, you will be implementing a Graph Class in [`./graphs.js`]('./graphs.js) using an Adjacency List.
+
+Your Graph Class will need the ability to add Nodes and Edges. If you'd like to implement any bonus methods, such as deleting Nodes and Edges or searching, feel free!
+
 ## Additional Resources
 
-- Practice building a graph [visually](https://visualgo.net/en/graphds?slide=1).
+- Practice building a graph [visually](https://visualgo.net/en/graphds?slide=1)
 - Common graph interview [questions AND solutions](https://medium.com/@codingfreak/graph-data-structure-interview-questions-and-practice-problems-22d5cd488855).
 - Some graph data structure [interview question topics](https://medium.com/@codingfreak/graph-data-structure-interview-questions-and-practice-problems-22d5cd488855).
 - Visualizations of [breadth-first search](https://www.cs.usfca.edu/~galles/visualization/BFS.html) and [depth-first search](https://www.cs.usfca.edu/~galles/visualization/DFS.html) in a graph structure.
 - [More interview questions](https://stackabuse.com/graph-data-structure-interview-questions) about graphs that don’t necessarily deal with coding.
+
+A popular graph-related interview question covers Dijkstra’s shortest path algorithm, a method for traversing a graph. The algorithm itself gets complicated, but you should familiarize yourself with the concept:
+
+- An [overview](https://medium.com/basecs/finding-the-shortest-path-with-a-little-help-from-dijkstra-613149fbdc8e) of the algorithm
+- A [visualization](https://www.cs.usfca.edu/~galles/visualization/Dijkstra.html) of the algorithm
+
+## Attributions
+
+- [myGA on Graphs](https://my.generalassemb.ly/activities/403)
+- [Interview Cake](https://www.interviewcake.com/concept/javascript/graph?)
