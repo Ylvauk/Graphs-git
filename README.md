@@ -158,6 +158,12 @@ Think about trying to find someone on Facebook. If you wanted to find a specific
 
 But if you wanted to find people to connect with on Facebook, you might use Facebook’s “People You May Know” feature. In this scenario, Facebook is using BFS to show you people with whom you have things in common — mutual friends, where you live, or where you work.
 
+## Essential Questions
+
+1. When would you use a graph data structure over a binary tree or a linked list? 
+1. What is the difference between a directed and undirected graph? When would you use each? 
+1. When would you choose an adjacency list graph implementation over an adjacency matrix? 
+
 ## Graph Implementation
 
 To complete this exercise, you will be implementing a Graph Class in [`./graphs.js`]('./graphs.js) using an Adjacency List.
