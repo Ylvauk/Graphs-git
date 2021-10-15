@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const { Graph } = require('../graph');
+const { Graph } = require('../graphs');
 
 describe('Graph', () => {
 	describe('Graph.nodes', () => {
