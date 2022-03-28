@@ -41,6 +41,10 @@ Graphs are commonly used to represent networks. They are concerned with the mult
 
 Facebook has [used a graph data structure](https://m.facebook.com/nt/screen/?params=%7B%22note_id%22%3A10158791578747200%7D&path=%2Fnotes%2Fnote%2F&refsrc=deprecated&_rdr) to organize its data since 2013. Items like users, check-ins, and comments would be stored as objects, also called “nodes.” The relationship between those items — “liked by” or “friend of” — are represented as “edges” that connect the objects. A graph structure is the clearest and most efficient way for Facebook to store this data, return it to users, and make it accessible to developers.
 
+Graphs can get very large! As seen in [this](https://danieldcm.medium.com/wikipedias-articles-graph-analysis-320d8630a46b) article analyzing wikipedia pages.
+
+![1_6gjTXzvn9Rd81J8Li6_CPg](https://media.git.generalassemb.ly/user/37934/files/8e4b2080-850d-11ec-8f6d-dd8e447f52bf)
+
 **❓ You know what’s represented by the nodes and edges in Facebook’s graph. What would the nodes and edges in Google Maps’ graph represent?**
 
 **❓ Trees and linked lists also have nodes. How are trees and linked lists different from graphs based on what you've seen so far?**
@@ -144,6 +148,13 @@ A breadth-first search has one big advantage to recommend it -- it will find the
 
 If you know the value you're looking for is closer to the starting node, choose BFS as it will be faster.
 
+- Create a queue (this can be an array) and a variable to store the values of nodes vidited.
+- Place the starting node in the queue
+- Loop as long as there is anything in the queue
+	- Dequeue a node from the queue and push the value of the node into the variable that stores the nodes
+	- If there are any neighbors of the node dequeued that *have not yet been visited* - add each of them to the queue and mark as visited
+- Return the variable that stores the values
+
 ### Depth-First Search (DFS)
 
 Depth-first search follows one chain of related nodes until you reach the end of the graph, then returns to the starting node and begins again. You go as deep as possible down one path before backing up and trying again.
@@ -151,6 +162,17 @@ Depth-first search follows one chain of related nodes until you reach the end of
 It's like walking through a maze. You explore one path, hit a dead end, and go back and try a different one.
 
 Depth-first searches lend themselves well to a recursive approach, as you want to continue traversing while a node has connections, and explore all the possible connections before returning to the starting point. If the graph is very wide and not too deep, DFS is generally more efficient than BFS at finding the desired element.
+
+Basically we are visiting a node and then recursively traversing all of the left side then all of the right side.
+Steps... 
+- Create a variable to store the values of nodes visited
+- Store the root of the BST in a variable called current
+- Write a helper function which accepts a node
+	- Push the value of the node to the variable that stores the values
+	- If the node has a left property, call the helper function with the left proptery on the node
+	- If the node has a right property, call the helper function with the right property on the node.
+- Invoke the helper function with the current variable
+- Return the array of values
 
 ### BFS vs. DFS Use Cases
 
