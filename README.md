@@ -148,12 +148,18 @@ A breadth-first search has one big advantage to recommend it -- it will find the
 
 If you know the value you're looking for is closer to the starting node, choose BFS as it will be faster.
 
-- Create a queue (this can be an array) and a variable to store the values of nodes vidited.
+<details>
+	<summary>Bonus: BFS Pseudocode</summary>
+	
+- Create a queue (this can be an array) and a variable to store the values of nodes visited.
 - Place the starting node in the queue
 - Loop as long as there is anything in the queue
 	- Dequeue a node from the queue and push the value of the node into the variable that stores the nodes
 	- If there are any neighbors of the node dequeued that *have not yet been visited* - add each of them to the queue and mark as visited
 - Return the variable that stores the values
+
+</details>
+
 
 ### Depth-First Search (DFS)
 
@@ -164,7 +170,10 @@ It's like walking through a maze. You explore one path, hit a dead end, and go b
 Depth-first searches lend themselves well to a recursive approach, as you want to continue traversing while a node has connections, and explore all the possible connections before returning to the starting point. If the graph is very wide and not too deep, DFS is generally more efficient than BFS at finding the desired element.
 
 Basically we are visiting a node and then recursively traversing all of the left side then all of the right side.
-Steps... 
+
+<details>
+	<summary>Bonus: DFS Pseudocode</summary>
+	
 - Create a variable to store the values of nodes visited
 - Store the root of the BST in a variable called current
 - Write a helper function which accepts a node
@@ -173,6 +182,8 @@ Steps...
 	- If the node has a right property, call the helper function with the right property on the node.
 - Invoke the helper function with the current variable
 - Return the array of values
+
+</details>
 
 ### BFS vs. DFS Use Cases
 
