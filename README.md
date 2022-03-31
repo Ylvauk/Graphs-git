@@ -157,7 +157,7 @@ If you know the value you're looking for is closer to the starting node, choose 
 	- Dequeue a node from the queue and push the value of the node into the variable that stores the nodes
 	- If there are any neighbors of the node dequeued that *have not yet been visited* - add each of them to the queue and mark as visited
 - Return the variable that stores the values
-- 
+
 </details>
 
 
@@ -182,7 +182,7 @@ Basically we are visiting a node and then recursively traversing all of the left
 	- If the node has a right property, call the helper function with the right property on the node.
 - Invoke the helper function with the current variable
 - Return the array of values
-- 
+
 </details>
 
 ### BFS vs. DFS Use Cases
