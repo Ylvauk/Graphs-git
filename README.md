@@ -19,7 +19,7 @@ Developers will be able to:
 
 ```
 $ git clone <paste ssh url>
-$ cd graphs
+$ cd graphs-1
 $ npm install
 $ code .
 ```
